@@ -55,7 +55,7 @@ const editTask = (taskId, newText) => {
   return (
     <div className="app-container">
       <header>
-        <h1>قائمة مهامي</h1>
+        <h1> My Tasks</h1>
       </header>
       <main>
         <TaskInput onAddTask={addTask} />
