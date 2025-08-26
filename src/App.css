@@ -132,3 +132,28 @@ header h1 {
     flex-direction: column;
   }
 }
+
+
+
+/* تصميم زر التعديل وحقل الإدخال عند التعديل */
+
+.task-item .edit-input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #4a90e2;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.task-item div {
+  display: flex;
+  gap: 5px;
+}
+
+.task-item .edit-btn {
+  background-color: #f39c12;
+}
+
+.task-item .edit-btn:hover {
+  background-color: #e67e22;
+}
