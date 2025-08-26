@@ -1,22 +1,32 @@
 // src/App.jsx
 import { useState } from 'react';
-import TaskInput from './components/TaskInput'; // استيراد المكون
+import TaskInput from './components/TaskInput';
+import TaskList from './components/TaskList'; // استيراد المكون
 import './App.css';
 
 function App() {
   const [tasks, setTasks] = useState([
-     { id: 1, text: 'تعلم React', completed: true },
-     { id: 2, text: 'بناء مشروع قائمة مهام', completed: false },
+    { id: 1, text: 'تعلم React', completed: true },
+    { id: 2, text: 'بناء مشروع قائمة مهام', completed: false },
   ]);
 
-  // دالة لإضافة مهمة جديدة
   const addTask = (taskText) => {
-    const newTask = {
-      id: Date.now(), // استخدام التوقيت الحالي كمعرّف فريد
-      text: taskText,
-      completed: false,
-    };
-    setTasks([...tasks, newTask]); // إضافة المهمة الجديدة إلى نهاية المصفوفة
+    const newTask = { id: Date.now(), text: taskText, completed: false };
+    setTasks([...tasks, newTask]);
+  };
+
+  // دالة لتحديث حالة اكتمال المهمة
+  const toggleComplete = (taskId) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
+  // دالة لحذف مهمة
+  const deleteTask = (taskId) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
   return (
@@ -25,8 +35,12 @@ function App() {
         <h1>قائمة مهامي</h1>
       </header>
       <main>
-        <TaskInput onAddTask={addTask} /> {/* تمرير الدالة كـ prop */}
-        {/* سيتم عرض قائمة المهام هنا */}
+        <TaskInput onAddTask={addTask} />
+        <TaskList
+          tasks={tasks}
+          onToggleComplete={toggleComplete}
+          onDeleteTask={deleteTask}
+        />
       </main>
     </div>
   );
