@@ -1,42 +1,134 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* src/App.css */
+
+/* تصميم عام */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 40px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+}
+
+header h1 {
   text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* تصميم حقل الإدخال */
+.task-input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.task-input-container input {
+  flex-grow: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.task-input-container input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.task-input-container button {
+  padding: 12px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.task-input-container button:hover {
+  background-color: #357abd;
+}
+
+/* تصميم قائمة المهام */
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-item span {
+  cursor: pointer;
+  flex-grow: 1;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+/* تمييز المهمة المكتملة */
+.task-item.completed span {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.task-item button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0; /* إخفاء الزر افتراضياً */
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+.task-item:hover button {
+  opacity: 1; /* إظهار الزر عند المرور على المهمة */
+}
+
+.task-item button:hover {
+  background-color: #c0392b;
+}
+
+.no-tasks {
+  text-align: center;
+  color: #777;
+  margin-top: 30px;
+}
+
+/* تصميم متجاوب للهواتف */
+@media (max-width: 600px) {
+  .app-container {
+    margin: 0 10px;
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .task-input-container {
+    flex-direction: column;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
