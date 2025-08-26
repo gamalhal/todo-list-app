@@ -1,21 +1,27 @@
 // src/App.jsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // استيراد useEffect
 import TaskInput from './components/TaskInput';
-import TaskList from './components/TaskList'; // استيراد المكون
+import TaskList from './components/TaskList';
 import './App.css';
 
 function App() {
-  const [tasks, setTasks] = useState([
-    { id: 1, text: 'تعلم React', completed: true },
-    { id: 2, text: 'بناء مشروع قائمة مهام', completed: false },
-  ]);
+  // 1. تعديل الحالة لتقرأ من LocalStorage عند بدء التشغيل
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem('tasks');
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
 
+  // 2. استخدام useEffect لحفظ المهام في LocalStorage كلما تغيرت
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]); // هذا التأثير سيعمل فقط عندما تتغير قيمة `tasks`
+
+  // ... (باقي الدوال: addTask, toggleComplete, deleteTask)
   const addTask = (taskText) => {
     const newTask = { id: Date.now(), text: taskText, completed: false };
     setTasks([...tasks, newTask]);
   };
 
-  // دالة لتحديث حالة اكتمال المهمة
   const toggleComplete = (taskId) => {
     setTasks(
       tasks.map((task) =>
@@ -24,7 +30,6 @@ function App() {
     );
   };
 
-  // دالة لحذف مهمة
   const deleteTask = (taskId) => {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
