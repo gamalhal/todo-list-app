@@ -1,12 +1,48 @@
-# React + Vite
+# 📝 تطبيق قائمة المهام بـ React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+تطبيق ويب بسيط وحديث لإدارة المهام اليومية، تم بناؤه باستخدام React و Vite. هذا المشروع يهدف إلى تطبيق المفاهيم الأساسية في React مثل المكونات، الحالة (State)، والـ Hooks.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## ✨ الميزات
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **إضافة المهام:** إضافة مهام جديدة بسهولة عبر حقل إدخال واضح.
+- **تحديث حالة المهمة:** تمييز المهام كمكتملة أو غير مكتملة بنقرة واحدة.
+- **حذف المهام:** إزالة المهام من القائمة.
+- **تصميم متجاوب:** واجهة مستخدم تعمل بشكل رائع على الأجهزة المكتبية والهواتف.
+- **حفظ البيانات:** يتم حفظ المهام في المتصفح (LocalStorage)، لذلك لن تفقدها عند إعادة تحميل الصفحة.
+
+## 🛠️ التقنيات المستخدمة
+
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- HTML5 & CSS3
+- JavaScript (ES6+)
+
+## 🚀 طريقة التشغيل
+
+لتشغيل المشروع محلياً، اتبع الخطوات التالية:
+
+1.  **نسخ المستودع:**
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
+    ```
+
+2.  **الانتقال إلى مجلد المشروع:**
+    ```bash
+    cd YOUR_REPO_NAME
+    ```
+
+3.  **تثبيت الاعتماديات:**
+    ```bash
+    npm install
+    ```
+
+4.  **تشغيل خادم التطوير:**
+    ```bash
+    npm run dev
+    ```
+
+5.  افتح المتصفح على `http://localhost:5173`.
+
+---
