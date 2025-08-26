@@ -1,19 +1,19 @@
 // src/components/TaskList.jsx
 import TaskItem from './TaskItem';
 
-function TaskList({ tasks, onToggleComplete, onDeleteTask }) {
-  if (tasks.length === 0) {
-    return <p className="no-tasks">لا يوجد مهام حاليًا. عظيم!</p>;
-  }
-  
+// src/components/TaskList.jsx
+
+function TaskList({ tasks, onToggleComplete, onDeleteTask, onEditTask }) { // <-- استقبل الدالة هنا
+  // ... (الكود كما هو)
   return (
     <ul className="task-list">
       {tasks.map((task) => (
         <TaskItem
-          key={task.id} // مفتاح فريد لكل عنصر في القائمة
+          key={task.id}
           task={task}
           onToggleComplete={onToggleComplete}
           onDeleteTask={onDeleteTask}
+          onEditTask={onEditTask} // <-- مررها إلى TaskItem
         />
       ))}
     </ul>

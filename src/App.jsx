@@ -5,6 +5,24 @@ import TaskList from './components/TaskList';
 import './App.css';
 
 function App() {
+
+
+  // src/App.jsx
+
+// ... (داخل مكون App، بجانب دوال addTask, deleteTask)
+
+// دالة لتعديل نص مهمة موجودة
+const editTask = (taskId, newText) => {
+  setTasks(currentTasks => 
+    currentTasks.map(task => 
+      task.id === taskId ? { ...task, text: newText } : task
+    )
+  );
+};
+
+
+
+
   // 1. تعديل الحالة لتقرأ من LocalStorage عند بدء التشغيل
   const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem('tasks');
